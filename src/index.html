@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.3.0/css/all.min.css" integrity="sha512-ApSLB1Pd3/bZN8fWB/RG9YhN/7bd9Hkf3AGaE2mPfebjrxagjuBtx2GcgdqIlJkUzwylBo61r9Xa9NmgBI0swA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="css/style.css">
+    <title>kanban</title>
+</head>
+<body>
+    <header class="bar">     
+            <ul class="nav-list">
+                <li>
+                    <button id="adicionar-column" data-modal="modal-1">
+                            <i class="fa-solid fa-plus"></i>
+
+                    </button>
+                </li>
+                <li>Pendentes</li>
+            </ul> 
+            <dialog id="modal-1">
+               <form action="" class="form">
+                   <div class="nova-coluna-titulo">
+                        <i class="fa-solid fa-table-columns"></i>
+                        <h1>Nova Coluna</h1>
+                   </div>
+                   <div class="alinharIconTitulo">
+                        <i class="fa-solid fa-a"></i>
+                        <label>Título da Coluna</label>
+                   </div>
+                   <input type="text" id="titulo" name="titulo" required>
+                   
+                    <div class="alinharIconCor">
+                        <i class="fa-solid fa-palette"></i>
+                        <label>Cor</label>
+                    </div>
+                    <div class="radioCor">
+                        <input type="radio" name="cor" class="roxo" value="rgb(124, 58, 237)">
+                        <input type="radio" name="cor" class="azul" value="rgb(59, 130, 246)">
+                        <input type="radio" name="cor" class="verde" value="rgb(34, 197, 94)">
+                        <input type="radio" name="cor" class="amarelo" value="rgb(250, 204, 21)">
+                        <input type="radio" name="cor" class="laranja" value="rgb(249, 115, 22)">
+                        <input type="radio" name="cor" class="rosa" value="rgb(236, 72, 153)">
+                        <input type="radio" name="cor" class="cinza" value="rgb(107, 114, 128)">
+                     </div>
+                
+                     <div class="buttonFormCreate">
+                        <button id="closeButton" class="closeButton">
+                            <p>cancelar</p>
+                        </button>
+                        <button type="button" id="confirmar" class="confirmar">
+                            <p>confirmar</p>
+                        </button>
+                     </div>
+               </form>
+            </dialog>
+
+    </header>
+  
+   <main class="kanban">
+        <dialog id="modal-2" >
+                <form action="" class="form">
+                    <button type="button" class="trashColunm"><i class="fa-solid fa-trash-can" style="color: rgb(255, 255, 255);"></i></button>
+                   <div class="nova-coluna-titulo">
+                        <i class="fa-solid fa-table-columns"></i>
+                        <h1>Nova Coluna</h1>
+                   </div>
+                   <div class="alinharIconTitulo ">
+                        <i class="fa-solid fa-a"></i>
+                        <label>Título da Coluna</label>
+                   </div>
+                   <input type="text" id="tituloedita" name="tituloEdita" placeholder="" required>
+                   
+                    <div class="alinharIconCor">
+                        <i class="fa-solid fa-palette"></i>
+                        <label>Cor</label>
+                    </div>
+                    <div class="radioCor">
+                        <input type="radio" name="cor" class="roxo"    value="rgb(124, 58, 237)">
+                        <input type="radio" name="cor" class="azul"    value="rgb(59, 130, 246)">
+                        <input type="radio" name="cor" class="verde"   value="rgb(34, 197, 94)">
+                        <input type="radio" name="cor" class="amarelo" value="rgb(250, 204, 21)">
+                        <input type="radio" name="cor" class="laranja" value="rgb(249, 115, 22)">
+                        <input type="radio" name="cor" class="rosa"    value="rgb(236, 72, 153)">
+                        <input type="radio" name="cor" class="cinza"   value="rgb(107, 114, 128)">
+                     </div>
+                
+                     <div class="buttonFormCreate">
+                        <button type="button" id="closeModalEditar" class="closeButton">Cancelar</button>
+                        <button type="button" id="salvarEdicao" class="confirmar">Salvar</button>
+                    </div>
+                   
+                </form>
+                </dialog>
+       <!-- <div class="collunn-kanban"> 
+            <div class="kanban-title">
+
+                <h2>Pendente</h2>
+                <button class="editar-column" >
+                     <i class="fa-solid fa-ellipsis-vertical"></i>
+                </button>
+               -->
+              
+            <!--
+            </div>
+        
+            <div class="cards-da-coluna">
+
+               <div class="card-tarefas" draggable="true">
+                    <header class="title-card">
+                        <h3 >A fazer </h3>
+                        <button type="button" id="editCard">
+                            <i class="fa-solid fa-ellipsis-vertical"></i>
+                        </button>
+                    </header>
+                    <p>
+                    Revisar conceitos de DOM e manipulação de eventos
+                    </p>
+
+                    <footer>
+                        <span>
+                            <i class="fa-solid fa-circle"></i>
+                        </span>
+                    </footer>
+                </div>
+            </div>
+            <button type="button" id="addCard" class="adicionar-card"><i class="fa-solid fa-plus"></i> Adicionar Card</button>
+   -->
+            <dialog class="modalCreateCard">
+                <form action="" class="form form-create-card">
+                    <div class="alinharIconTitulo ">
+                        <i class="fa-solid fa-a"></i>
+                        <label>Título do Card</label>
+                    </div>
+                    <input type="text" id="textCard" required>
+
+                     <div class="alinharIconTitulo ">
+                        <i class="fa-solid fa-a"></i>
+                        <label>Descrição<label>
+                    </div>
+                       <input type="text" id="descricaoCard"  required>
+
+                    <div class="radio-card radio-prioridade">
+                            <label>
+                                <input type="radio" class="vermelho-prioridade" name="inputRadio-card" value="rgb(255, 13, 0)">
+                                <span>Alta</span>
+                            </label>    
+                            <label>
+                                <input type="radio" class="amarelo-prioridade" name="inputRadio-card" value="rgb(212, 223, 1)" >
+                                <span>Média</span>
+                            </label>
+                            <label>
+                                <input type="radio" class="verde-prioridade" name="inputRadio-card" value="rgb(60, 255, 0)">
+                                <span>Baixa</span>
+                            </label>
+                    </div>
+
+                    <div class="buttonFormCreate">   
+                        <button type="button" id="cancelarModalCardCreate" class="closeButton">cancelar</button>
+                        <button type="button" id="salvarCard" class="confirmar">Salvar</button>
+                    </div> 
+                </form>
+            </dialog>
+       </div>
+      
+    </main>
+
+    <script src="javascript/javascript.js"></script>
+</body>
+</html>

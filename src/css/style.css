@@ -1,0 +1,347 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    /* Fundo base escuro */
+    background-color: #040112; 
+    min-height: 100vh;
+    color: white;
+}
+
+
+.bar {
+    max-width: 100%;
+    height: 60px;
+    background-color: #040112; 
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 20px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.nav-list {
+    color: #e0e6ed;
+    list-style: none;
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    font-size: 18px;
+    font-weight: 600;
+}
+
+#adicionar-column {
+    padding: 6px 10px;
+    font-size: 16px;
+    border: none;
+    border-radius: 6px;
+    background-color: #1a1e38;
+    color: #ffffff;
+    cursor: pointer;
+    transition: background-color 0.2s, border-color 0.2s;
+}
+
+#adicionar-column:hover {
+    background-color: #2a2f52;
+    color: #ffffff;
+}
+
+main {
+    display: flex;
+    align-items: flex-start;
+    justify-content: flex-start; 
+    gap: 20px;               
+    padding: 24px;               
+    overflow-x: auto;            
+    width: 100%;
+    min-height: calc(100vh - 60px);
+
+  
+    background: linear-gradient(
+        135deg,
+        #1c213f 0%,   
+        #0b0c1e 45%,  
+        #040112 100%  
+    );
+}
+
+
+.collunn-kanban {
+    display: flex;
+    flex-direction: column;
+    flex-shrink: 0;
+    width: 320px;        
+    min-height: 500px;     
+    border-radius: 12px;
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    padding: 12px;
+    background: #060614; 
+    margin: 0;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3);
+}
+
+.kanban-title {
+    border-top: 3px solid rgba(255, 255, 0, 0.837); 
+    color: #f1f5f9;
+    padding: 10px 4px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 12px;
+}
+
+.editar-column {
+    padding: 4px 8px;
+    border: none;
+    border-radius: 4px;
+    background-color: transparent;
+    color: #94a3b8;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+.editar-column:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+    color: #ffffff;
+}
+
+.cards-da-coluna {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    flex: 1;
+    min-height: 200px;
+}
+
+.card-tarefas {
+    background-color: #0c0d1a;
+    border: 1px solid rgba(255, 255, 255, 0.06);
+    border-radius: 8px;
+    padding: 12px;
+    transition: transform 0.2s, border-color 0.2s;
+}
+
+.card-tarefas:hover {
+    border-color: rgba(255, 255, 255, 0.2);
+    transform: translateY(-2px);
+}
+
+.title-card {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: #ffffff;
+    margin-bottom: 8px;
+}
+
+.title-card>button {
+    padding: 4px;
+    font-size: 14px;
+    border: none;
+    background-color: transparent;
+    color: #94a3b8;
+    cursor: pointer;
+}
+
+.title-card>button:hover {
+    color: #ffffff;
+}
+
+.title-card h2 {
+    font-size: 16px;
+    white-space: nowrap;
+    overflow: hidden; 
+    text-overflow: ellipsis;
+}
+
+.card-tarefas>p {
+    color: #94a3b8;
+    font-size: 14px;
+    margin-bottom: 10px;
+}
+
+.card-tarefas>footer>span>i {
+    color: #ef4444;
+}
+
+.dragging {
+    opacity: 0.3;
+}
+
+.card-hover {
+    background-color: #171c38;
+}
+
+.adicionar-card {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 12px;
+    margin-top: auto;
+    border-radius: 8px;
+    border: 1px dashed rgba(255, 255, 255, 0.2);
+    background-color: transparent;
+    color: #94a3b8;
+    font-size: 14px;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+.adicionar-card:hover {
+    background-color: rgba(255, 255, 255, 0.05);
+    color: #ffffff;
+    border-color: rgba(255, 255, 255, 0.4);
+}
+
+dialog[open] {
+    margin: auto;
+    background-color: #0c0e1a;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 12px;
+    box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.6);
+}
+
+dialog::backdrop {
+    background: rgba(0, 0, 0, 0.7);
+    backdrop-filter: blur(4px);
+}
+
+.form {
+    background-color: #0c0e1a;
+    padding: 40px;
+    display: flex;
+    justify-content: center;
+    font-weight: bold;
+    flex-direction: column;
+    color: white;
+}
+
+.radioCor {
+    gap: 10px;
+    display: flex;
+    justify-content: space-around;
+}
+
+input[type="radio"] {
+    cursor: pointer;
+    appearance: none;
+    width: 32px;
+    height: 32px;
+    border-radius: 6px;
+    transition: transform 0.1s;
+}
+
+input[type="radio"]:hover {
+    transform: scale(1.08);
+}
+
+.radio-prioridade>label>input[type="radio"] {
+    border-radius: 50%;
+    height: 16px;
+    width: 16px;
+}
+
+input[type="radio"].roxo { background-color: #7c3aed; }
+input[type="radio"].azul { background-color: #3b82f6; }
+input[type="radio"].verde { background-color: #22c55e; }
+input[type="radio"].amarelo { background-color: #facc15; }
+input[type="radio"].laranja { background-color: #f97316; }
+input[type="radio"].rosa { background-color: #ec4899; }
+input[type="radio"].cinza { background-color: #6b7280; }
+
+input[type="radio"].amarelo-prioridade { background-color: #facc15; }
+input[type="radio"].verde-prioridade { background-color: #22c55e; }
+input[type="radio"].vermelho-prioridade { background-color: #ef4444; }
+
+input[type="radio"]:checked {
+    border: 3px solid #ffffff;
+}
+
+#titulo, .alinharIconTitulo + input {
+    background-color: #141728;
+    border: 1px solid #683fd0;
+    border-radius: 6px;
+    padding: 10px;
+    color: white;
+    outline: none;
+}
+
+.buttonFormCreate {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 25px;
+    gap: 12px;
+}
+
+.confirmar, .closeButton {
+    padding: 12px 28px; 
+    border-radius: 6px;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    font-size: 15px;
+    color: white;
+    background-color: #141c2b;
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+
+.closeButton:hover, .confirmar:hover {
+    background-color: #683fd0;
+}
+
+.alinharIconCor, .alinharIconTitulo {
+    display: flex;
+    flex-direction: row;
+    gap: 8px;
+    margin: 20px 0 10px 0;
+}
+
+.fa-palette, .fa-a {
+    color: #683fd0;
+}
+
+.nova-coluna-titulo {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    margin-bottom: 20px;
+}
+
+.fa-table-columns {
+    font-size: 35px;
+    color: #683fd0;
+}
+
+.radio-card {
+    margin-top: 20px;
+    gap: 10px;
+}
+
+.radio-prioridade > label > span {
+    font-size: 16px;
+    margin-left: 4px;
+}
+
+.radio-prioridade {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 16px;
+}
+
+.trashColunm {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    width: 36px;
+    height: 36px;
+    border: none;
+    background: transparent;
+    cursor: pointer;
+}
